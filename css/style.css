@@ -1,0 +1,197 @@
+@font-face {
+    font-family: '1942_report1942_report';
+    src: url('../fonts/1942-webfont.woff2') format('woff2'),
+         url('../fonts/1942-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --dk-blue: rgb(19,24,98); /** #131862*/
+    --md-blue: rgb(46,68,130); /** #2e4482 */
+    --lt-blue: rgb(84,107,171); /** #546bab */
+    --lt-purple: rgb(190,169,222); /**bea9de */
+    --grey: rgb(135, 136,156); /** #87889c */
+    --lt-grey: rgb(231,231,231); /* #e7e7e7*/
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.8rem; /** 18px*/
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+
+/** global **/
+
+/*** typography **/
+
+h1, h2 {
+    font-family: '1942_report1942_report';
+}
+h1 {
+    font-size: 5rem;
+    line-height: 1;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    color: var(--md-blue);
+}
+
+
+h2 {
+    font-size: 4.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: var(--dk-blue);
+    line-height: 1;
+}
+
+h3 {
+    font-size: 2.1rem;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+
+/***** structual but still global ****/
+.inner-container {
+    padding: 1.5rem;
+}
+
+/********* layout - header **************/
+header {
+    background-color: var(--lt-grey);
+    padding: 2%;
+    text-align: center;
+    box-shadow: 2px 2px 3px var(--grey);
+}
+
+/********* layout - main content area **************/
+svg {
+    width: 6rem;
+    fill: var(--lt-purple);
+    position: relative;
+    top: 40px;
+    left: -12px;
+    z-index: -1;
+    padding-left: 0.5rem;
+    /** elminates the excess spacing from moving the svg 40px from the top **/
+    margin-top: -40px;
+}
+
+h2 {
+    padding-left: 1rem;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+     gap: 1%;
+     margin: 3rem 0;
+    /** longhand 
+         row-gap: - affect the rows
+         column-gap: -affects the columns
+        shorthand
+            gap: two values: row , column;
+            gap: single value - applies to both
+    **/
+}
+
+.card {
+    width: 100%;
+    /* margin-bottom: 1.5rem; */
+    border: 0.1rem solid var(--dk-blue);
+    border-radius: 0.5rem;
+}
+
+.card > header {
+    padding: 0 0 1%; /** top, left & right, bottom **/
+    box-shadow: none;
+}
+
+.card header img {
+    margin-bottom: 1rem;
+}
+
+.card header h3 {
+    color: var(--lt-blue);
+}
+
+.card-body,
+.card footer {
+    padding: 1rem;
+}
+
+.card footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card footer > ul {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/** add pipe characters between your your li items **/
+.card footer > ul li{
+    display: flex; /** flex the li so the pipes sit beside the li **/
+    align-items: center;
+}
+.card footer > ul li::after {
+    content: '';
+    display: inline-block;
+    border-right: 0.1rem solid var(--dk-blue);
+    height: 1.8rem;
+    padding-right: 0.5rem;
+}
+
+/** remove the pipe on the end **/
+.card footer > ul li:last-child::after{
+    border-right: none;
+    content:none;
+}
+
+
+@media screen and (min-width: 650px) {
+    
+    .card {
+        width: 49%;
+        /* margin-right: 1%; */
+    }
+    /** gap eliminates the need to remove the a end margin 
+    .card:nth-child(even) {
+        margin-right: 0;
+    }
+    **/
+}
+
+@media screen and (min-width: 1260px) {
+    .card {
+        width: 24%;
+    }
+}
+
+
+@media screen and (min-width: 1800px) {
+    .inner-container {
+        width: 176.0rem;
+        margin: auto;
+    }
+} 
+
